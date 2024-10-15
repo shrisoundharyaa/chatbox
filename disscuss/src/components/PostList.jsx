@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { fetchPosts } from '../services/postService';
+import './PostList.css'; // Import CSS for styling
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
@@ -14,11 +15,11 @@ const PostList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="post-container">
       <h2>Discussion Forum</h2>
       {posts.length > 0 ? (
-        posts.map(post => (
-          <div key={post.id}>
+        posts.map((post) => (
+          <div key={post.id} className="post">
             <h3>{post.title}</h3>
             <p>{post.content}</p>
             <small>By: {post.User.username}</small>
